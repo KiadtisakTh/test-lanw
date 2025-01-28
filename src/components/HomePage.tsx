@@ -7,6 +7,13 @@ import React, { useState, useEffect, useRef } from 'react';
       imageUrl: string;
     }
 
+    interface TopItem {
+      id: number;
+      title: string;
+      artist: string;
+      imageUrl: string;
+    }
+
     export function HomePage() {
       const [currentSlide, setCurrentSlide] = useState(0);
       const items: CarouselItem[] = [
@@ -34,6 +41,68 @@ import React, { useState, useEffect, useRef } from 'react';
           id: 5,
           title: 'Item 5',
           imageUrl: 'https://placehold.co/600x400/444444/FFFFFF?text=Item+5',
+        },
+      ];
+      const topItems: TopItem[] = [
+        {
+          id: 1,
+          title: 'Song 1',
+          artist: 'Artist 1',
+          imageUrl: 'https://placehold.co/150x150/000000/FFFFFF?text=Song+1',
+        },
+        {
+          id: 2,
+          title: 'Song 2',
+          artist: 'Artist 2',
+          imageUrl: 'https://placehold.co/150x150/111111/FFFFFF?text=Song+2',
+        },
+        {
+          id: 3,
+          title: 'Song 3',
+          artist: 'Artist 3',
+          imageUrl: 'https://placehold.co/150x150/222222/FFFFFF?text=Song+3',
+        },
+        {
+          id: 4,
+          title: 'Song 4',
+          artist: 'Artist 4',
+          imageUrl: 'https://placehold.co/150x150/333333/FFFFFF?text=Song+4',
+        },
+        {
+          id: 5,
+          title: 'Song 5',
+          artist: 'Artist 5',
+          imageUrl: 'https://placehold.co/150x150/444444/FFFFFF?text=Song+5',
+        },
+        {
+          id: 6,
+          title: 'Song 6',
+          artist: 'Artist 6',
+          imageUrl: 'https://placehold.co/150x150/555555/FFFFFF?text=Song+6',
+        },
+        {
+          id: 7,
+          title: 'Song 7',
+          artist: 'Artist 7',
+          imageUrl: 'https://placehold.co/150x150/666666/FFFFFF?text=Song+7',
+        },
+        {
+          id: 8,
+          title: 'Song 8',
+          artist: 'Artist 8',
+          imageUrl: 'https://placehold.co/150x150/777777/FFFFFF?text=Song+8',
+        },
+        {
+          id: 9,
+          title: 'Song 9',
+          artist: 'Artist 9',
+          imageUrl: 'https://placehold.co/150x150/888888/FFFFFF?text=Song+9',
+        },
+        {
+          id: 10,
+          title: 'Song 10',
+          artist: 'Artist 10',
+          imageUrl: 'https://placehold.co/150x150/999999/FFFFFF?text=Song+10',
         },
       ];
       const timeoutRef = useRef<number | null>(null);
@@ -150,6 +219,35 @@ import React, { useState, useEffect, useRef } from 'react';
                     />
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Top 10 Section */}
+          <div className="bg-gray-50 py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+                Top 10
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                {topItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                  >
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-32 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">{item.artist}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
